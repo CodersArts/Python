@@ -1,0 +1,42 @@
+
+Just one space, or all such spaces? If the second, then strings already have a .strip() method:
+
+
+
+>>> ' Hello '.strip()
+'Hello'
+>>> ' Hello'.strip()
+'Hello'
+>>> 'Bob has a cat'.strip()
+'Bob has a cat'
+>>> '          Hello        '.strip()  # ALL spaces at ends removed
+'Hello'
+
+===============================================================================
+
+If you need only to remove one space however, you could do it with:
+
+def strip_one_space(s):
+    if s.endswith(" "): s = s[:-1]
+    if s.startswith(" "): s = s[1:]
+    return s
+
+>>> strip_one_space("   Hello ")
+'  Hello'
+Also, note that str.strip() removes other whitespace characters as well (e.g. tabs and newlines). 
+To remove only spaces, you can specify the character to remove as an argument to strip, i.e.:
+
+>>> "  Hello\n".strip(" ")
+'Hello\n'
+
+
+=============================================================
+fileinput seems to be for multiple input streams. This is what I would do:
+
+with open("test.txt") as file:
+    for line in file:
+        line = line.rstrip()
+        if line:
+            print line
+            
+            
