@@ -1,0 +1,35 @@
+
+I would stack generator expressions:
+
+with open(filename) as f_in:
+    lines = (line.rstrip() for line in f_in) # All lines including the blank ones
+    lines = (line for line in lines if line) # Non-blank lines
+Now, lines is all of the non-blank lines. This will save you from having to call strip on the line twice. If you want a list of lines, then you can just do:
+
+with open(filename) as f_in:
+    lines = (line.rstrip() for line in f_in) 
+    lines = list(line for line in lines if line) # Non-blank lines in a list
+You can also do it in a one-liner (exluding with statement) but it's no more efficient and harder to read:
+
+with open(filename) as f_in:
+    lines = list(line for line in (l.strip() for l in f_in) if line)
+Update:
+I agree that this is ugly because of the repetition of tokens. You could just write a generator if you prefer:
+
+def nonblank_lines(f):
+    for l in f:
+        line = l.rstrip()
+        if line:
+            yield line
+Then call it like:
+
+with open(filename) as f_in:
+    for line in nonblank_lines(f_in):
+        # Stuff
+update 2:
+with open(filename) as f_in:
+    lines = filter(None, (line.rstrip() for line in f_in))
+and on CPython (with deterministic reference counting)
+
+lines = filter(None, (line.rstrip() for line in open(filename)))
+In Python 2 use itertools.ifilter if you want a generator and in Python 3, just pass the whole thing to list if you want a list.
