@@ -1,0 +1,37 @@
+##ggplot
+
+import numpy as np
+import pandas as pd
+from plotnine import *
+
+
+#read iris.csv file
+data1=pd.read_csv('iris.csv')
+
+c_col = ["#2f4858", "#f6ae2d", "#f26419",
+         "#33658a", "#55dde0", "#2f4858",
+         "#2f4858", "#f6ae2d", "#f26419",
+         "#33658a", "#55dde0", "#2f4858"]
+def labels(from_, to_, step_):
+    return pd.Series(np.arange(from_, to_ + step_, step_)).apply(lambda x: '{:,}'.format(x)).tolist()
+def breaks(from_, to_, step_):
+    return pd.Series(np.arange(from_, to_ + step_, step_)).tolist()
+
+
+ggplot(data1.dropna(subset = ['Species'])) + geom_point(
+        aes(x = 'Species',
+            y = 'Sepal.Length'),
+        fill = c_col[0], color = 'black'
+    ) + labs(
+        title ='Relationship between alcoholic content (abv) and int. bittering untis (ibu)',
+        x = 'Species',
+        y = 'Sepal Length',
+    ) + scale_x_continuous(
+        limits = (0, 0.14),
+        labels = labels(0, 0.14, 0.02),
+        breaks = breaks(0, 0.14, 0.02)
+    )  + scale_y_continuous(
+        limits = (0, 150),
+        labels = labels(0, 150, 30),
+        breaks = breaks(0, 150, 30)
+    )
