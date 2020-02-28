@@ -26,11 +26,16 @@ Flask UI Dashboard:
 
 How to run:
 
-download repository and go the Dashboard folder and copy code 
+download repository and go the Dashboard folder and copy code
+
 After this go to the directory folder where run.py exit
+
 Copy path and go to the cmd
-chage cmd current directory path 
+
+chage cmd current directory path
+
 now it ready to run:
+
 >python run.py
 
 ![Flask UI Dashboard](https://user-images.githubusercontent.com/35237091/75536726-c1402c00-5a3b-11ea-9a76-062f8ad070d4.JPG)
