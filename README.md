@@ -7,14 +7,14 @@ myblog and run.py use for Flask Blog web app
 
 
 
->Flask Black Dash-Board:
+## Flask Black Dash-Board:
 
 ![Flask Black Dashboard](https://user-images.githubusercontent.com/35237091/75530419-c603e080-5a39-11ea-93ce-5cb9df46f8ed.JPG)
 
 
-# Flask Argon Dashboard:
+## Flask Argon Dashboard:
 
-## How to run:
+### How to run:
 
 >Go go our Flask Dashboard directory and follow instruction which is given inside it
 
@@ -22,9 +22,9 @@ myblog and run.py use for Flask Blog web app
 ![Flask Argon Dashboard](https://user-images.githubusercontent.com/35237091/75532515-5d693380-5a3a-11ea-9784-f3b2cbfa1b7a.JPG)
 
 
-Flask UI Dashboard:
+## Flask UI Dashboard:
 
->How to run:
+### How to run:
 
 Download repository and go the Dashboard folder and copy code
 
@@ -41,7 +41,7 @@ now it ready to run:
 ![Flask UI Dashboard](https://user-images.githubusercontent.com/35237091/75536726-c1402c00-5a3b-11ea-9a76-062f8ad070d4.JPG)
 
 
-Flask Light Dashboard:
+## Flask Light Dashboard:
 
 Run As per above instructions:
 
